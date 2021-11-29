@@ -1,0 +1,96 @@
+programa
+{
+	funcao inicio ()
+	{
+		cadeia reservas[50][20]
+		inteiro i, j, opcao, fila, cadeira
+		
+		
+		faca
+        {
+		  escreva("Menu de reservas \n")
+          escreva("1) Fazer uma reserva \n")
+          escreva("2) Listar acentos reservados \n")
+		  escreva("3) Desfazer reserva \n")
+		  escreva("0) para sair \n")
+		  escreva("escolha uma opção\n")
+		  leia(opcao)
+		  
+		  
+		  
+		  escolha(opcao)
+		  {
+		  	caso 0:
+		  	escreva("tchau \n")
+		  	pare
+
+		  	caso 1:
+		  	escreva("Escolha uma fila\n")
+		  	leia(fila)
+		  	escreva("Escolha uma cadeira\n")
+		  	leia(cadeira)
+		  	
+		  	i = fila -1
+		  	j = cadeira -1
+		  	
+		  	se(reservas[i][j] != "")
+		  	{
+		  		escreva("Assento ja reservado\n")
+		  		escreva("Escolha outra opção\n")
+		  	}senao{
+		  		escreva("Digite o nome da reserva\n")
+		  	    leia(reservas[i][j])
+		  		escreva("Reserva realizada com sucesso!!\n")
+		  		
+		  	}
+		  	pare
+            
+			caso 2:
+			escreva("Listas das reservas ------\n")
+			para(i=0; i< 50; i++){
+				para(j=0; j< 20; j++){
+					fila = i +1
+					cadeira = j +1
+					
+					se(reservas[i][j] != "" )
+					{
+						escreva("fila ," +fila + " cadeira, " + cadeira + " reservas : " + reservas[i][j] + "\n"  )
+					}
+					
+				}
+			}
+			escreva("\nFim lista\n")
+			pare
+
+            caso 3:
+			escreva("Digite a fila que deseja remover reserva\n")
+			leia(fila)
+			escreva("Digite a cadeira que deseja remover reserva\n")
+            leia(cadeira)
+			
+			i = fila
+            j = cadeira
+			
+			para(i=0; i< 50; i++){
+				para(j=0; j< 20; j++){
+					
+						reservas[i][j] = ""
+						
+						escreva("Reserva removida com sucesso\n")
+						escreva("fila removida," + fila + " cadeira removida, " + cadeira + "e reservas : " + reservas[i][j] + "\n"  )
+		
+					
+				}
+			}
+			pare
+			
+           caso contrario:
+		   escreva("Opção invalida\n")
+		   
+		  }
+		  
+        	
+        }enquanto (opcao != 0)
+		
+	}
+}
